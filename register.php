@@ -20,15 +20,15 @@ require 'koneksi.php';
                     <?php
                     
                         if( isset($_POST['register'])) {
-                            $nama = $_POST['nama_lengkap'];
+                            $name = $_POST['nama_lengkap'];
                             $email = $_POST['email'];
                             $alamat = $_POST['alamat'];
                             $username = $_POST['username'];
                             $password = md5($_POST['password']);
 
-                            $insert = mysqli_query($koneksi, "INSERT INTO user(nama_lengkap,email,alamat,username,password,) VALUES('$nama','$email','$alamat','$username','$password')"); 
+                            $insert = mysqli_query($koneksi, "INSERT INTO user (nama_lengkap,email,alamat,username,password,) VALUES('$name','$email','$alamat','$username','$password')"); 
                         
-                            if($insert ) {
+                            if($insert) {
                                 echo '<script>alert("Pendaftaran Berhasil!"); location.href="login.php"</script>';   
                             }else{
                                 echo '<script>alert("Pendaftaran Gagal!");</script>';   
@@ -40,7 +40,7 @@ require 'koneksi.php';
                     <form method="post">
                         <div class="mb-3">
                             <label class="form-label">Nama Lengkap</label>
-                            <input type="text" required class="form-control" name="nama" placeholder="Nama Lengkap..." />
+                            <input type="text" required class="form-control" name="nama_lengkap" placeholder="Nama Lengkap..." />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email</label>
