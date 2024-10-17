@@ -1,69 +1,60 @@
 <?php
-include "koneksi.php";
-
-if(isset($_POST['username'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $cek = mysqli_query($koneksi, "SELECT*FROM user where username='$username' and password= '$password'");
-
-    if(mysqli_num_rows($cek) > 0 ) {
-        $data = mysqli_fetch_array($cek);
-        $_SESSION['user'] = $data;
-        echo '<script>alert("selamat datang'.$data['nama_lengkap'].'"); location.href="index.php"</script>';
-    }else{
-        echo '<script>alert("username/password salah")</script>';
-    }
-}
-
+require 'koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Galeri Foto</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="aset/css/style.css">
+</head>
+<body class="bg-light">
 
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Login Galeri Foto</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="bg-primary">
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
-                                    <div class="card-body">
-                                        <form method="post">
-                                            <div class="form-group">
-                                            <label class="small mb-1" for="inputEmailAddress">Username</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="text" placeholder="masukan username" name="username" />
-                                            </div>
-                                            <div class="from-group">
-                                            <label class="small mb-1" for="inpuPassword">Password</label>
-                                                <input class="form-control py-4" id="inputPassword" type="password" placeholder="masukan password" name="password" />
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <button class="btn btn-primary" type="submit">Login</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.php">Belum Punya Akun? Register!</a></div>
-                                    </div>
-                                </div>
-                            </div>
+<div class="container">
+    <div class="row justify-content-center" style="height: 100vh;">
+        <div class="col-md-4">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Login</h5>
+                    <?php
+                        if( isset($_POST['login'])) {
+                            $username = $_POST['username'];
+                            $password = md5($_POST['password']);
+                            
+                            $data = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' and password='$password'");
+                            $cek = mysqli_num_rows($data);
+                            if($cek > 0) {
+                                $_SESSION['user'] = mysqli_fetch_array($data);
+                                echo '<script>alert("Selamat datang di galeri foto!"); location.href="index.php";</script>';
+                            } else {
+                                echo '<script>alert("username/password tidak sesua!i")</script>';
+                            }
+                        }
+                    ?>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="email
+                            " class="form-label">Username</label>
+                            <input type="username" class="form-control"  name="username" placeholder="username..." required>
                         </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="password...">
+                        </div>
+                        <button type="submit"name="login" value="login" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Belum punya akun?<a href="register.php">Daftar disini</a></p>
                     </div>
-                </main>
+                </div>
             </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="aset/js/login.js"></script>
+</body>
 </html>
