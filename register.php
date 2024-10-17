@@ -11,7 +11,6 @@ require 'koneksi.php';
     <link rel="stylesheet" href="aset/css/style.css">
 </head>
 <body class="bg-light">
-
 <div class="container">
     <div class="row justify-content-center" style="height: 100vh;">
         <div class="col-md-4">
@@ -26,7 +25,7 @@ require 'koneksi.php';
                             $alamat = $_POST['alamat'];
                             $username = $_POST['username'];
                             $password = md5($_POST['password']);
-                            
+
                             $insert = mysqli_query($koneksi, "INSERT INTO user(nama_lengkap,email,alamat,username,password,) VALUES('$nama','$email','$alamat','$username','$password')"); 
                         
                             if($insert ) {
