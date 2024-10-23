@@ -27,6 +27,7 @@
                                         <td><?php echo $data['tanggal']; ?></td>
                                         <td>
                                             <a href="?page=galeri_ubah&&id=<?php echo $data['id_foto']; ?>" class="btn btn-primary">Ubah</a>
+                                            <a href="?page=galeri_hapus&&id=<?php echo $data['id_foto']; ?>" class="btn btn-primary">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php
