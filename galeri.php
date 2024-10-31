@@ -4,7 +4,8 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Galeri Foto</li>
                         </ol>
-                        <a href="?page=galeri_tambah">+ Tambah Galeri</a>
+                        <a href="?page=galeri_tambah" class="btn btn-primary">+ Tambah Galeri</a>
+                        <br><br>
                         <table class="table table-bordered">
                             <tr>
                               <th>Gambar</th>

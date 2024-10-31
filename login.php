@@ -29,7 +29,7 @@ require 'koneksi.php';
                             $cek = mysqli_num_rows($data);
                             if($cek > 0) {
                                 $_SESSION['user'] = mysqli_fetch_array($data);
-                                echo '<script>alert("Selamat datang di galeri foto!"); location.href="index.php";</script>';
+                                echo '<script>alert("フォトギャラリーへようこそ!"); location.href="index.php";</script>';
                             } else {
                                 echo '<script>alert("username/password tidak sesua!i")</script>';
                             }
