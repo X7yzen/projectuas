@@ -17,7 +17,9 @@ require 'koneksi.php';
         <div class="col-md-4">
             <div class="card mt-5">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Login</h5>
+                    <h5 class="card-title text-center">
+ログイン
+</h5>
                     <?php
                         if( isset($_POST['login'])) {
                             $username = $_POST['username'];
@@ -36,17 +38,20 @@ require 'koneksi.php';
                     <form method="post">
                         <div class="mb-3">
                             <label for="email
-                            " class="form-label">Username</label>
-                            <input type="username" class="form-control"  name="username" placeholder="username..." required>
+                            " class="form-label">
+                            ユーザー名</label>
+                            <input type="username" class="form-control"  name="username" placeholder="
+ユーザー名..." required>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="password...">
+                            <label for="password" class="form-label">パスワード</label>
+                            <input type="password" class="form-control" name="password" placeholder="パスワード...">
                         </div>
                         <button type="submit"name="login" value="login" class="btn btn-primary w-100">Login</button>
                     </form>
                     <div class="text-center mt-3">
-                        <p>Belum punya akun?<a href="register.php">Daftar disini</a></p>
+                        <p>まだアカウントを持っていません
+                        ?<a href="register.php">ここに登録してください</a></p>
                     </div>
                 </div>
             </div>
