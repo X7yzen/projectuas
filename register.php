@@ -19,7 +19,7 @@ require 'koneksi.php';
                     <h5 class="card-title text-center">アカウントを登録する</h5>
                     <?php
                     
-                        if( isset($_POST['register'])) {
+                        if(isset($_POST['register'])) {
                             $name = $_POST['nama_lengkap'];
                             $email = $_POST['email'];
                             $alamat = $_POST['alamat'];

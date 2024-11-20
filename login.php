@@ -21,7 +21,7 @@ require 'koneksi.php';
 ログイン
 </h5>
                     <?php
-                        if( isset($_POST['login'])) {
+                        if(isset($_POST['login'])) {
                             $username = $_POST['username'];
                             $password = md5($_POST['password']);
                             

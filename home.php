@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM komentarfoto")); ?>Total Komentar</div>
+                                    <div class="card-body"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM komentar")); ?>Total Komentar</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM likefoto")); ?>Total Like</div>
+                                    <div class="card-body"><?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM likee")); ?>Total Like</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>

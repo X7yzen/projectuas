@@ -17,19 +17,23 @@
                             </tr>
                             <?php
                 
-                                $query = mysqli_query($koneksi, "SELECT foto.*, album.namaalbum FROM foto left join album on album.album_id = foto.album_id");
+                                $query = mysqli_query($koneksi, "SELECT foto.*, album.nama_album FROM foto left join album on album.id_album = foto.id_album");
                                 while($data = mysqli_fetch_array($query)) {
 
                                     ?>
                                     <tr>
-                                        <td><img src="gambar/<?php echo $data['gambar']; ?>" alt="gambar"></td>
+                                        <td>
+                                            <a href="gambar/<?php echo $data['gambar']; ?>" target="_blank">
+                                            <img src="gambar/<?php echo $data['gambar']; ?>" width="200" alt="gambar">
+                                             </a>
+                                        </td>
                                         <td><?php echo $data['judul']; ?></td>
                                         <td><?php echo $data['nama_album']; ?></td>
                                         <td><?php echo $data['deskripsi']; ?></td> 
                                         <td><?php echo $data['tanggal']; ?></td>
                                         <td>
-                                            <a href="?page=galeri_ubah&&id=<?php echo $data['foto_id']; ?>" class="btn btn-primary">Ubah</a>
-                                            <a href="?page=galeri_hapus&&id=<?php echo $data['foto_id']; ?>" class="btn btn-primary">Hapus</a>
+                                            <a href="?page=galeri_ubah&&id=<?php echo $data['id_foto']; ?>" class="btn btn-primary">Ubah</a>
+                                            <a href="?page=galeri_hapus&&id=<?php echo $data['id_foto']; ?>" class="btn btn-primary">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php
